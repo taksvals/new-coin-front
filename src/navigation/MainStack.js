@@ -19,6 +19,8 @@ export default MainStack = () => {
   };
 
   const screenOptions = ({route}) => ({
+    tabBarShowLabel: false,
+    tabBarOptions: tabBarOptions,
     tabBarIcon: ({focused}) => {
       let iconName = require('../assets/images/main-tab.png');
 
@@ -47,7 +49,6 @@ export default MainStack = () => {
   return (
     <MainS.Navigator
       screenOptions={screenOptions}
-      tabBarOptions={tabBarOptions}
       >
       <MainS.Screen name="Favorites" component={Favorites} />
       <MainS.Screen name="Main" component={Main} />

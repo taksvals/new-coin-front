@@ -4,7 +4,7 @@ import {View, Text, Image, KeyboardAvoidingView, StyleSheet} from 'react-native'
 
 import InputField from '../reusable/InputField';
 
-const SignIn = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   return (
       <KeyboardAvoidingView style={styles.container}>
         <View>
@@ -14,10 +14,12 @@ const SignIn = ({ navigation }) => {
                 />
             </View>
             <InputField title="Email" placeholder="Enter email"/>
+            <InputField title="Nickname" placeholder="Enter nickname"/>
             <InputField title="Password" placeholder="Enter password"/>
+            <InputField title="Confirm Password" placeholder="Confirm password"/>
         </View>
-        <Text onPress={() => navigation.navigate('SignUp')}>
-            Sign Up
+        <Text onPress={() => navigation.navigate('SignIn')}>
+            Sign In
         </Text>
     </KeyboardAvoidingView>
   );
@@ -34,4 +36,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default SignIn;
+export default SignUp;
