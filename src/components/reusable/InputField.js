@@ -22,7 +22,8 @@ const InputField = ({placeholder, title, hide, onChange, value, keyboardType}) =
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    marginBottom: 11,
   },
   inputTitle: {
     fontSize: 18,
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
     height: 42,
     borderWidth: 1,
     borderRadius: 8,
-    fontSize: 14
+    fontSize: 14,
+    paddingLeft: 20
   }
 });
 
