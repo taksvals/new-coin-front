@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
 
 import {View, Text, StyleSheet} from 'react-native';
+import Button from '../reusable/AddAdded';
+
 
 const ListItem = ({name, price, favorite}) => {
+  let val;
+  favorite ? val = "added" : val = "add"
   return (
     <View style={[styles.itemContainer, favorite ? styles.favoriteItemContainer : styles.itemContainer]}>
         <View style={styles.textContainer}>
@@ -10,7 +14,7 @@ const ListItem = ({name, price, favorite}) => {
             <Text style={styles.priceStyle}>{price}</Text>
         </View>
         <View style={styles.buttonContainer}>
-            <Text>BUTTON</Text>
+          <Button value={val} />
         </View>
     </View>
   );

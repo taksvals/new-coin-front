@@ -1,12 +1,9 @@
 import React from 'react';
 
-import {View, Image, KeyboardAvoidingView, StyleSheet} from 'react-native';
-
-import InputField from '../reusable/InputField';
+import {View, Image, KeyboardAvoidingView, StyleSheet, Text} from 'react-native';
 
 import ButtonComponent from '../reusable/ButtonComponent';
 
-import LinkComponent from '../reusable/LinkComponent';
 
 const SignIn = ({ navigation }) => {
   return (
@@ -17,11 +14,16 @@ const SignIn = ({ navigation }) => {
                     source={require('../../assets/images/logo.png')}
                 />
             </View>
-            <InputField title="Email" placeholder="Enter email"/>
-            <InputField title="Password" placeholder="Enter password"/>
+            <View style={{
+                marginHorizontal: 55, 
+                marginTop: 30, 
+                marginBottom: 25
+            }}>
+            <Text style={styles.text}>Store and manage all your digital currencies with ease in the smart wallet interface</Text>
+            </View>
         </View>
-        <ButtonComponent value="Enter" link="Favorites"/>
-        <LinkComponent textValue="Don't have an account yet? " link="SignUp" value="Register here"/>
+        <ButtonComponent value="Login" link="SignIn"/>
+        <ButtonComponent value="SignUp" link="SignUp"/>
     </KeyboardAvoidingView>
   );
 };
@@ -33,8 +35,14 @@ const styles = StyleSheet.create({
     logoContainer: {
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 100
+        marginTop: 150
     },
+    text: {
+        textAlign: 'center',
+        fontSize: 19,
+        fontWeight: '600',
+        color: '#2F3092'
+    }
 });
 
 

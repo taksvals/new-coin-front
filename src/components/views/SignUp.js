@@ -1,8 +1,14 @@
 import React from 'react';
 
-import {View, Text, Image, KeyboardAvoidingView, StyleSheet} from 'react-native';
+import {View, Text, Image, KeyboardAvoidingView, StyleSheet } from 'react-native';
+
+// import CheckBox from '@react-native-community/checkbox';
 
 import InputField from '../reusable/InputField';
+
+import ButtonComponent from '../reusable/ButtonComponent';
+
+import LinkComponent from '../reusable/LinkComponent';
 
 const SignUp = ({ navigation }) => {
   return (
@@ -18,9 +24,8 @@ const SignUp = ({ navigation }) => {
             <InputField title="Password" placeholder="Enter password"/>
             <InputField title="Confirm Password" placeholder="Confirm password"/>
         </View>
-        <Text onPress={() => navigation.navigate('SignIn')}>
-            Sign In
-        </Text>
+        <ButtonComponent value="Ready" link="Favorites"/>
+        <LinkComponent textValue="Already Have an Account? " link="SignIn" value="Sign in here"/>
     </KeyboardAvoidingView>
   );
 };
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     logoContainer: {
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
 });
 
 
