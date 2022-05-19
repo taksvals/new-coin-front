@@ -5,7 +5,7 @@ import {View, Image, KeyboardAvoidingView, StyleSheet, Text} from 'react-native'
 import ButtonComponent from '../reusable/ButtonComponent';
 
 
-const SignIn = ({ navigation }) => {
+const Welcome = ({ navigation }) => {
   return (
       <KeyboardAvoidingView style={styles.container}>
         <View>
@@ -22,8 +22,8 @@ const SignIn = ({ navigation }) => {
             <Text style={styles.text}>Store and manage all your digital currencies with ease in the smart wallet interface</Text>
             </View>
         </View>
-        <ButtonComponent value="Login" link="SignIn"/>
-        <ButtonComponent value="SignUp" link="SignUp"/>
+        <ButtonComponent value="Login" onClick = {() => navigation.navigate('SignIn')}/>
+        <ButtonComponent value="SignUp" onClick = {() => navigation.navigate('SignUp')}/>
     </KeyboardAvoidingView>
   );
 };
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default SignIn;
+export default Welcome;

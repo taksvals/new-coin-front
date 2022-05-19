@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, TextInput, Text, StyleSheet} from 'react-native';
 
-const InputField = ({placeholder, title, hide, onChange, value, keyboardType}) => {
+const InputField = ({placeholder, title, hide, name, onChange, value, keyboardType}) => {
   const [borderColor, setBorderColor] = React.useState("#BAC8BA");
   return (
     <View style={styles.inputContainer}>
@@ -10,11 +10,13 @@ const InputField = ({placeholder, title, hide, onChange, value, keyboardType}) =
       <TextInput 
         value={value}
         placeholder={placeholder}
+        name={name}
         style={[styles.input, {borderColor: borderColor}]}
         onChangeText={onChange}
         keyboardType={keyboardType}
         onFocus={() => setBorderColor("#2F3092")}
         onBlur={() => setBorderColor("#BAC8BA")}
+        secureTextEntry={hide}
         />
     </View>
   );

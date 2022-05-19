@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {View, Image, KeyboardAvoidingView, StyleSheet} from 'react-native';
 
 import InputField from '../reusable/InputField';
-
 import ButtonComponent from '../reusable/ButtonComponent';
-
 import LinkComponent from '../reusable/LinkComponent';
 
-const SignIn = ({ navigation }) => {
+import { login } from '../../actions/auth';
+
+const SignIn = ({login, isAuthenticated, navigation}) => {
+
+    const [email, setEmail] = useState(); 
+    const [password, setPassword] = useState(); 
+
+    const onSubmit = async () => {
+        login(email, password);
+    };
+
+    if(isAuthenticated) {
+        navigation.navigate('MainStack');
+    }
+
   return (
       <KeyboardAvoidingView style={styles.container}>
         <View>
@@ -17,10 +31,19 @@ const SignIn = ({ navigation }) => {
                     source={require('../../assets/images/logo.png')}
                 />
             </View>
-            <InputField title="Email" placeholder="Enter email"/>
-            <InputField title="Password" placeholder="Enter password"/>
+            <InputField 
+                title="Email"
+                placeholder="Enter email"
+                value={email}
+                onChange={setEmail}/>
+            <InputField 
+                title="Password"
+                placeholder="Enter password"
+                value={password}
+                onChange={setPassword}
+                hide/>
         </View>
-        <ButtonComponent value="Enter" link="Favorites"/>
+        <ButtonComponent value="Enter" link="Favorites" onClick={onSubmit}/>
         <LinkComponent textValue="Don't have an account yet? " link="SignUp" value="Register here"/>
     </KeyboardAvoidingView>
   );
@@ -37,5 +60,13 @@ const styles = StyleSheet.create({
     },
 });
 
+SignIn.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
+};
 
-export default SignIn;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {login})(SignIn);

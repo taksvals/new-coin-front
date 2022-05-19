@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/native';
-
 import {View, Text, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ButtonComponent = ({value, link}) => {
+const ButtonComponent = ({value, link, onClick}) => {
   const [backgroundColor, setBackgroundColor] = React.useState("#F40086");
-  const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => {setBackgroundColor("#FFA8D8"), navigation.navigate(`${link}`)}}>
+    <TouchableOpacity onPress={onClick}>
       <View style={styles.button}>
         <Text style={styles.text}>{value}</Text>
       </View>

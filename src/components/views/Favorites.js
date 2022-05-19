@@ -41,7 +41,6 @@ const Favorites = () => {
       data={DATA}
       renderItem={renderItem}
       keyExtractor={item => item.name}/>
-      {/* <ListItem name="BTC/BUSD" price="$54,382.64"/> */}
     </View>
   );
 };
